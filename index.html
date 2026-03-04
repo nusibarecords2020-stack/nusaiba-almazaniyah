@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كلية نسيبة المازنية | النشرة الرسمية - العدد الأول</title>
+    <meta name="description" content="النشرة الشهرية لكلية نسيبة المازنية - العدد الأول: أخبار، فعاليات، تكريمات، ونصائح طبية.">
+    <!-- Bootstrap RTL -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #f6f9fc 0%, #eef2f7 100%);
+            color: #1e293b;
+            line-height: 1.7;
+        }
+
+        /* شريط التمرير */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #e9eef3; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #1e3c72, #2a5298); border-radius: 10px; }
+
+        /* الهيدر */
+        .main-header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 50px 20px;
+            border-radius: 0 0 40px 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(30,60,114,0.2);
+            text-align: center;
+        }
+        .main-header h1 { font-size: 3rem; font-weight: 800; }
+        .main-header .subtitle { font-size: 1.3rem; opacity: 0.95; }
+        .main-header .date-badge {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(5px);
+            display: inline-block;
+            padding: 8px 25px;
+            border-radius: 40px;
+            margin-top: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* كلمة العميد */
+        .dean-message {
+            background: #f8f4e9;
+            border-radius: 30px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #e2e8f0;
+            position: relative;
+        }
+        .dean-message h2 { color: #1e3c72; font-weight: 700; margin-bottom: 20px; }
+        .dean-message h2 i { color: #2a5298; margin-left: 8px; }
+        .dean-signature { margin-top: 20px; font-weight: 600; color: #1e3c72; }
+
+        /* البطاقات العامة */
+        .card-custom {
+            background: white;
+            border-radius: 30px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px -5px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .card-custom .card-title {
+            color: #1e3c72;
+            font-weight: 700;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .card-custom .card-title i { color: #2a5298; margin-left: 10px; }
+
+        /* بطاقات الأحداث (كل حدث بصورة) */
+        .event-card {
+            background: white;
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            transition: 0.3s;
+        }
+        .event-card:hover { box-shadow: 0 10px 30px rgba(30,60,114,0.1); border-color: #2a5298; }
+        .event-card h4 { color: #1e3c72; font-weight: 700; margin-bottom: 15px; }
+        .event-card h4 i { color: #2a5298; margin-left: 8px; }
+
+        /* الصور */
+        .img-hover-zoom {
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .img-hover-zoom img {
+            width: 100%;
+            height: auto;
+            max-height: 250px;
+            object-fit: cover;
+            transition: 0.5s;
+            cursor: pointer;
+            border-radius: 15px;
+        }
+        .img-hover-zoom:hover img { transform: scale(1.03); }
+
+        /* الأزرار */
+        .btn-custom {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .btn-custom:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(30,60,114,0.3); color: white; }
+        .btn-outline-custom {
+            background: transparent;
+            border: 2px solid #1e3c72;
+            color: #1e3c72;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .btn-outline-custom:hover { background: linear-gradient(135deg, #1e3c72, #2a5298); border-color: transparent; color: white; }
+
+        /* المحتوى الإضافي (اقرأ المزيد) */
+        .collapse-content {
+            display: none;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 20px;
+            margin-top: 15px;
+            border-right: 4px solid #1e3c72;
+        }
+
+        /* الأقسام الملونة */
+        .education-news { background: linear-gradient(135deg, #4a2b7a, #6b46a1); color: white; padding: 30px; border-radius: 30px; margin: 30px 0; }
+        .digital-transformation { background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 30px; border-radius: 30px; margin: 30px 0; }
+        .ramadan-vibes { background: linear-gradient(135deg, #7b5e3b, #9d7a4e); color: white; padding: 30px; border-radius: 30px; margin: 30px 0; }
+        .scientific-corner { background: linear-gradient(135deg, #1a2a3a, #2c3e50); color: white; padding: 30px; border-radius: 30px; margin: 30px 0; }
+        .medical-corner { background: linear-gradient(135deg, #0b4f6c, #148c8c); color: white; padding: 30px; border-radius: 30px; margin: 30px 0; position: relative; overflow: hidden; }
+        .monthly-info { background: linear-gradient(135deg, #0b3b3c, #1a5f5f); color: white; padding: 30px; border-radius: 30px; margin: 30px 0; }
+        .countdown-box { background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 25px; border-radius: 30px; text-align: center; margin: 30px 0; }
+        .countdown-number { font-size: 2.5rem; font-weight: 800; color: #fbbf24; margin: 0 8px; }
+
+        /* لوحة الشرف */
+        .honor-box {
+            background: #fef9e7;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid #fbbf24;
+        }
+
+       /* توقيع المصمم (مصغر) */
+        .designer-credit {
+            text-align: center;
+            padding: 6px 15px;
+            margin: 20px 0;
+            color: #64748b;
+            background: white;
+            border-radius: 40px;
+            display: inline-block;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+            border: 0px solid #e2e8f0;
+            font-size: 0.85rem;
+        }
+        .designer-credit .name { color: #1e3c72; font-weight: 600; }
+
+        /* تذييل */
+        .footer {
+            background: linear-gradient(135deg, #1a2639, #2d3748);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+            border-radius: 40px 40px 0 0;
+            text-align: center;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            padding: 40px;
+            left: 0; top: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+        }
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 15px;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px; left: 40px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+        }
+        .lightbox-close:hover { color: #2a5298; }
+
+        /* قسم بداية الفصل (بألوان متناسقة) */
+        .semester-start {
+            background: linear-gradient(145deg, #0b4f6c, #148c8c); /* متناسق مع الزاوية الطبية */
+            color: white;
+            padding: 30px;
+            border-radius: 40px;
+            margin: 40px 0;
+            box-shadow: 0 15px 30px rgba(0,80,80,0.2);
+            border: 1px solid #2aa0a0;
+            position: relative;
+            overflow: hidden;
+        }
+        .semester-start::before {
+            content: "📚";
+            font-size: 8rem;
+            position: absolute;
+            left: -20px;
+            bottom: -30px;
+            opacity: 0.1;
+            transform: rotate(15deg);
+        }
+        .semester-start h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .semester-start .date-highlight {
+            background: #fbbf24;
+            color: #0b4f6c;
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 1.8rem;
+            margin: 15px 0;
+            box-shadow: 0 5px 0 #b68b1e;
+        }
+
+        @media (max-width: 768px) {
+            .main-header h1 { font-size: 2rem; }
+            .event-card .row { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر -->
+    <header class="main-header">
+        <div class="container">
+            <h1 data-aos="fade-down">كلية نسيبة المازنية</h1>
+            <div class="subtitle" data-aos="fade-up">للتمريض والقبالة والمهن الطبية المساندة</div>
+            <div class="date-badge" data-aos="zoom-in"><i class="fas fa-calendar-alt me-2"></i> النشرة الدورية / العدد الأول </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- كلمة العميد -->
+        <div class="dean-message" data-aos="fade-up">
+            <h2><i class="fas fa-user-tie"></i> كلمة العميد</h2>
+            <p>في إطار سعي كلية نسيبة المازنية للتمريض والقبالة والمهن الطبية المساندة إلى ترسيخ نهج مؤسسي قائم على الجودة والشفافية والتطوير المستمر، يسعدنا إطلاق العدد الأول من النشرة الدورية الشهرية، والتي تأتي كمنصة توثيقية تعكس الحراك الأكاديمي والإداري والطلابي داخل الكلية.</p>
+            <p>إن هذه النشرة ليست مجرد عرضٍ للفعاليات، بل هي سجلٌ مهني يعكس الجهود المبذولة، ويؤكد التزام الكلية برسالتها التعليمية والمجتمعية، ويجسد روح العمل بروح الفريق الواحد. كما نأمل أن تكون هذه النشرة أداة تواصل فاعلة تُبرز الإنجازات وتُحفّز على المزيد من العطاء والتميز.</p>
+            <div class="dean-signature"><i class="fas fa-feather-alt"></i> مع خالص الشكر لكل من أسهم في إنجاح مسيرة الكلية،<br><strong>عميد الكلية</strong><br><span style="color:#2a5298;">د. نوح الخطيب</span></div>
+        </div>
+
+        <!-- الأحداث والفعاليات (مع الصور) -->
+        <div class="card-custom" data-aos="fade-up">
+            <div class="card-title"><i class="fas fa-calendar-alt"></i> الأحداث والفعاليات</div>
+
+            <!-- 1. يوم الوفاء والبيعة -->
+            <div class="event-card">
+                <h4><i class="fas fa-flag"></i> يوم الوفاء والبيعة</h4>
+                <div class="row">
+                    <div class="col-md-8">
+                        <p>في السابع من شباط من كل عام، يستذكر الأردنيون بكل فخر واعتزاز جلالة المغفور له الملك الحسين بن طلال، طيب الله ثراه، الذي كرّس حياته في خدمة الوطن، وترسيخ قيم الحكمة والاعتدال، وجعل من الأردن أنموذجًا في الثبات والعطاء.</p>
+                        <p>وفي هذه الذكرى الوطنية العزيزة، يجدد الأردنيون البيعة والولاء لجلالة الملك عبدالله الثاني ابن الحسين، حفظه الله ورعاه، مؤكدين التفافهم حول القيادة الهاشمية الحكيمة.</p>
+                        <button class="btn-outline-custom btn-sm" onclick="toggleContent('loyaltyDetails', this)"><i class="fas fa-plus-circle"></i> اقرأ المزيد</button>
+                        <div id="loyaltyDetails" class="collapse-content">
+                            <p>وبهذه المناسبة، تؤكد كلية نسيبة المازنية اعتزازها العميق بانتمائها للوطن، وولاءها الراسخ للقيادة الهاشمية، والتزامها بدورها الأكاديمي والوطني في إعداد أجيال مؤهلة، متمسكة بقيم الوفاء والإخلاص، ومساهمة في خدمة المجتمع تحت ظل الراية الهاشمية.</p>
+                            <p>حفظ الله الأردن، قيادةً وشعبًا، وأدام عليه نعمة الأمن والاستقرار.</p>
+                            <span class="badge bg-primary">#يوم_الوفاء_والبيعة</span> <span class="badge bg-primary">#كلية_نسيبة_المازنية</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="img-hover-zoom">
+                            <img src="https://i.ibb.co/jZkgzhtc/629189316-122102135295249941-1259657953495252741-n.jpg" onclick="openLightbox(this.src)" alt="الملك عبدالله الثاني">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. مشاركة د. رهام الحمود -->
+            <div class="event-card">
+                <h4><i class="fas fa-handshake"></i> مشاركة في حفل تكريم</h4>
+                <div class="row">
+                    <div class="col-md-8">
+                        <p>بمناسبة التقاعد، شارك الدكتور نوح الخطيب، عميد كلية نسيبة المازنية، نيابة عن أسرة الكلية، في حفل تكريم الدكتورة رهام يوسف الحمود، مديرة مديرية التعليم والتدريب الطبي، بمناسبة بلوغها سن التقاعد.</p>
+                        <button class="btn-outline-custom btn-sm" onclick="toggleContent('rehamDetails', this)"><i class="fas fa-plus-circle"></i> اقرأ المزيد</button>
+                        <div id="rehamDetails" class="collapse-content">
+                            <p>وأعرب العميد عن خالص الشكر والتقدير للدكتورة رهام على مسيرتها المهنية المتميزة، وما قدمته من جهود كبيرة في تطوير التعليم والتدريب الطبي، مثمناً تعاونها المثمر مع الكلية ودعمها المستمر.</p>
+                            <p>متمنين لها دوام التوفيق والنجاح في مسيرتها القادمة.</p>
+                            <span class="badge bg-info">#كلية_نسيبة_المازنية</span> <span class="badge bg-success">#مسيرة_عطاء</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="img-hover-zoom">
+                            <img src="https://i.ibb.co/V0DLSFH6/637923952-122105280369249941-3421796772759477627-n-1.jpg" onclick="openLightbox(this.src)" alt="تكريم د. رهام">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. تكريم طاهر الأتيرة -->
+            <div class="event-card">
+                <h4><i class="fas fa-award"></i> تكريم الزميل طاهر الأتيرة</h4>
+                <div class="row">
+                    <div class="col-md-8">
+                        <p>برعاية عطوفة عميد الكلية الدكتور نوح الخطيب، وبحضور الهيئتين التدريسية والإدارية، أقامت الكلية حفل تكريم للزميل القدير طاهر الأتيرة بمناسبة إحالته إلى التقاعد، تقديرًا لمسيرته المهنية الحافلة بالعطاء.</p>
+                        <button class="btn-outline-custom btn-sm" onclick="toggleContent('taherDetails', this)"><i class="fas fa-plus-circle"></i> اقرأ المزيد</button>
+                        <div id="taherDetails" class="collapse-content">
+                            <p>وسادت الحفل أجواء من التقدير والاعتزاز، حيث عبّر الزملاء عن بالغ امتنانهم لما عُرف به من أخلاق رفيعة وروح مخلصة في العمل، مؤكدين أن بصمته ستبقى راسخة في ذاكرة الكلية ومسيرتها المؤسسية.</p>
+                            <p>وفي ختام الحفل، تفضل عطوفة العميد بتقديم درع تكريمي للزميل طاهر الأتيرة، عرفانًا بسنوات عطائه، متمنين له دوام الصحة والعافية والتوفيق في حياته القادمة.</p>
+                            <p>ويأتي هذا التكريم في إطار نهج الكلية في ترسيخ قيم الوفاء والتقدير.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="img-hover-zoom">
+                            <img src="https://i.ibb.co/LDYCZbMW/Whats-App-Image-2026-02-09-at-1-54-02-PM.jpg" onclick="openLightbox(this.src)" alt="تكريم طاهر">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. حفل تهنئة رمضان -->
+            <div class="event-card">
+                <h4><i class="fas fa-moon"></i> حفل تهنئة بمناسبة رمضان</h4>
+                <div class="row">
+                    <div class="col-md-8">
+                        <p>تحت رعاية عميد الكلية الدكتور نوح الخطيب، وبتنسيق من لجنة خدمة المجتمع، أُقيم في حرم الكلية حفل تهنئة بمناسبة حلول شهر رمضان المبارك، بحضور الكوادر الإدارية والتدريسية وممثلي شركات الخدمات والحراسات الأمنية.</p>
+                        <button class="btn-outline-custom btn-sm" onclick="toggleContent('ramadanDetails', this)"><i class="fas fa-plus-circle"></i> اقرأ المزيد</button>
+                        <div id="ramadanDetails" class="collapse-content">
+                            <p>واستُهلّت الفعالية بكلمة ألقاها عميد الكلية، رفع فيها أسمى آيات التهنئة والتبريك، مؤكدًا على أهمية ترسيخ قيم التعاون والتآخي وتعزيز روح الانتماء والعمل المشترك.</p>
+                            <p>وتضمّن الحفل إفطارًا جماعيًا سادته أجواء من الألفة والمودة، عكست روح الشهر الكريم وما يجسده من معاني التكافل والتراحم.</p>
+                            <p class="mt-2">🌙 رمضان مبارك، أعاده الله علينا وعليكم بالخير واليُمن والبركات</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="img-hover-zoom">
+                            <img src="https://i.ibb.co/TM14bbs4/image.png" onclick="openLightbox(this.src)" alt="حفل رمضان">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. الاجتماع الدوري -->
+            <div class="event-card">
+                <h4><i class="fas fa-users"></i> الاجتماع الدوري للكلية</h4>
+                <div class="row">
+                    <div class="col-md-8">
+                        <p>في إطار تعزيز جودة الأداء المؤسسي، عقدت كلية نسيبة المازنية اجتماعها الدوري برئاسة عميد الكلية الدكتور نوح الخطيب، وبحضور الهيئتين التدريسية والإدارية.</p>
+                        <button class="btn-outline-custom btn-sm" onclick="toggleContent('meetingDetails', this)"><i class="fas fa-plus-circle"></i> اقرأ المزيد</button>
+                        <div id="meetingDetails" class="collapse-content">
+                            <p>تضمّن الاجتماع مراجعة شاملة لإنجازات الشهر الماضي، ومناقشة سبل الارتقاء بالأداء الأكاديمي وتحسين جودة الخدمات المقدّمة للطلبة.</p>
+                            <p>كما عرضت لجان الكلية أعمالها وإنجازاتها، في صورة تعكس روح التعاون والعمل بروح الفريق الواحد.</p>
+                            <p>وأكدت إدارة الكلية أن التخطيط المستمر وتبادل الخبرات يشكلان الركيزة الأساسية لتجاوز التحديات وتحقيق التميّز.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="img-hover-zoom">
+                            <img src="https://i.ibb.co/HfWxSmGc/633219825-122103495273249941-6172002837453552708-n.jpg" onclick="openLightbox(this.src)" alt="الاجتماع الدوري">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. ورشة العمل -->
+            <div class="event-card">
+                <h4><i class="fas fa-chalkboard-teacher"></i> ورشة تدريبية: كيفية إعداد ملف المساق</h4>
+                <div class="row">
+                    <div class="col-md-8">
+                        <p>عُقِدت ورشة تدريبية متخصصة بعنوان "كيفية إعداد ملف المساق للمحاضرين" قدّمتها ممثلة لجنة الجودة الأكاديمية الأستاذة هدى خالد، وبالتنسيق مع لجنة تطوير الهيئة التدريسية.</p>
+                        <button class="btn-outline-custom btn-sm" onclick="toggleContent('workshopDetails', this)"><i class="fas fa-plus-circle"></i> اقرأ المزيد</button>
+                        <div id="workshopDetails" class="collapse-content">
+                            <p>تضمّنت الورشة عرضًا تفصيليًا لمكوّنات ملف المساق وآلية تعبئته وفق المعايير الأكاديمية المعتمدة، وكيفية مواءمة مخرجات التعلّم مع أساليب التقييم.</p>
+                            <p>وشهدت الورشة مشاركة فاعلة من الحضور من خلال طرح الأسئلة والاستفسارات.</p>
+                            <p>وتأتي هذه الورشة ضمن سلسلة من البرامج التطويرية التي تحرص الكلية على تنفيذها بشكل دوري.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="img-hover-zoom">
+                            <img src="https://i.ibb.co/wFtFcY6R/634945051-122104830675249941-7608090953011884336-n.jpg" onclick="openLightbox(this.src)" alt="ورشة العمل">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- ========== قسم مستجدات القطاع التعليمي (محدث بالنص الرسمي) ========== -->
+        <div class="education-news section-base" data-aos="fade-up">
+            <h2><i class="fas fa-graduation-cap"></i> مستجدات القطاع التعليمي</h2>
+            
+            <!-- موجز سريع -->
+            <p class="lead fw-bold">📌 قرر مجلس التعليم العالي برئاسة وزير التعليم العالي والبحث العلمي أ.د عزمي محافظة إلغاء الامتحان الشامل لطلبة الدبلوم المتوسط اعتباراً من 16-2-2026، واعتماد ضوابط جديدة للتجسير.</p>
+            
+            <button class="btn-outline-custom" style="border-color:white; color:white;" onclick="toggleContent('examDetails', this)"><i class="fas fa-plus-circle"></i> التفاصيل الكاملة للقرارات</button>
+            
+            <div id="examDetails" class="collapse-content mt-4" style="background:rgba(255,255,255,0.15); color:white; border-right-color: var(--accent);">
+                <div class="mb-4">
+                    <h5 style="color:var(--accent);"><i class="fas fa-check-circle ms-2"></i> أولاً: إلغاء الامتحان الشامل</h5>
+                    <p>قرر مجلس التعليم العالي في جلسته التي عقدها مؤخراً برئاسة وزير التعليم العالي والبحث العلمي أ.د عزمي محافظة إلغاء الامتحان الشامل الذي تعقده جامعة البلقاء التطبيقية لجميع طلبة الدبلوم الذين ينهون متطلبات الخطة الدراسية المعتمدة في درجة الدبلوم المتوسط، وذلك اعتباراً من تاريخ <strong>16-2-2026</strong>.</p>
+                </div>
+                
+                <div class="mb-4">
+                    <h5 style="color:var(--accent);"><i class="fas fa-check-circle ms-2"></i> ثانياً: التجسير في البرنامج الموازي (الجامعات الرسمية/الخاصة/الكليات الجامعية)</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-chevron-left text-warning ms-2"></i> <strong>اعتماد معدل الطالب التراكمي</strong> في الكلية المتوسطة، وحسب قائمة التخصصات المناظرة، بشرط:</li>
+                        <ul class="me-4">
+                            <li><i class="fas fa-circle" style="font-size: 0.4rem; vertical-align: middle; color: var(--accent);"></i> ألا يقل عن <strong>70%</strong> للتجسير في تخصصات الهندسة والطب البيطري.</li>
+                            <li><i class="fas fa-circle" style="font-size: 0.4rem; vertical-align: middle; color: var(--accent);"></i> ألا يقل عن <strong>68%</strong> للتجسير في باقي التخصصات.</li>
+                        </ul>
+                        <li class="mb-2"><i class="fas fa-chevron-left text-warning ms-2"></i> <strong>الطلبة الناجحون في الامتحان الشامل سابقاً</strong> يسمح لهم بالتجسسير في البرنامج الموازي وفقاً لمعدلهم التراكمي أو معدل الامتحان الشامل (الأعلى) وفق المعدلات المقررة.</li>
+                    </ul>
+                </div>
+
+                <div class="mb-4">
+                    <h5 style="color:var(--accent);"><i class="fas fa-check-circle ms-2"></i> ثالثاً: التجسير في البرنامج العادي (الجامعات الرسمية)</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-chevron-left text-warning ms-2"></i> يقتصر على الطلبة الحاصلين على الشهادة الجامعية المتوسطة <strong>في السنة الحالية فقط</strong>.</li>
+                        <li class="mb-2"><i class="fas fa-chevron-left text-warning ms-2"></i> تلتزم الجامعات/الكليات التي تمنح الدبلوم المتوسط بحصر أسماء <strong>الخمسة بالمئة الأوائل</strong> على مستوى كل تخصص (مرة واحدة في العام، خلال شهر آب) بعد استكمال الطلبة متطلبات التخرج في جميع الفصول (الأول+الثاني+الصيفي).</li>
+                        <li class="mb-2"><i class="fas fa-chevron-left text-warning ms-2"></i> يُشترط ألا يقل المعدل التراكمي عن <strong>70% للهندسة والطب البيطري</strong>، و<strong>68% لباقي التخصصات</strong>.</li>
+                        <li class="mb-2"><i class="fas fa-chevron-left text-warning ms-2"></i> يعقد مجلس التعليم العالي (عبر وحدة تنسيق القبول الموحد) <strong>امتحان قبول عام</strong> للطلبة الخمسة بالمئة الأوائل الراغبين بالتجسير، ويتم القبول تنافسياً وفقاً لعلامات الامتحان، مع الالتزام بقائمة التخصصات المناظرة.</li>
+                    </ul>
+                </div>
+                <p class="mt-3"><i class="fas fa-calendar-alt ms-2"></i> العمل بهذه الضوابط يبدأ اعتباراً من التاريخ المحدد، وتعمم على جميع المؤسسات التعليمية.</p>
+            </div>
+        </div>
+        <!-- التحول الرقمي المؤسسي -->
+        <div class="digital-transformation" data-aos="fade-up">
+            <h2 style="color:#fbbf24;"><i class="fas fa-digital-trench"></i> التحول الرقمي المؤسسي</h2>
+            <p>أطلقت الكلية قناة رسمية للموظفين على Microsoft Teams لتسهيل التواصل الداخلي وتنسيق الأعمال بين الوحدات المختلفة، كما تم عقد اجتماع تنسيقي لضمان استعداد كامل لاستقبال الطلبة.</p>
+        </div>
+
+        <!-- قسم بداية الفصل الدراسي الثاني  -->
+        <div class="semester-start" data-aos="fade-up">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h2><i class="fas fa-play-circle"></i> بداية الفصل الدراسي الثاني</h2>
+                    <p>يسرّ كلية نسيبة المازنية أن تعلن عن بدء الفصل الدراسي الثاني من العام الجامعي 2025/2026، وذلك اعتباراً من يوم الاحد الموافق:</p>
+                    <div class="date-highlight">1 مارس 2026</div>
+                    <p class="mt-3">نتمنى لجميع طلبتنا الأعزاء فصلاً دراسياً موفقاً مليئاً بالجد والاجتهاد والتفوق، ونسأل الله أن يكلل جهودكم بالنجاح.</p>
+                    <a href="https://ztic.edu.jo/images/2026/AcademicCalendar.pdf" target="_blank" class="btn-custom"><i class="fas fa-calendar-alt"></i> الاطلاع على التقويم الأكاديمي (PDF)</a>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-book-open" style="font-size: 8rem; opacity: 0.3;"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- التميز الطلابي - لوحة الشرف -->
+        <div class="card-custom" data-aos="fade-up">
+            <div class="card-title"><i class="fas fa-star"></i> التميز الطلابي</div>
+            <div class="honor-box">
+                <i class="fas fa-crown fa-3x" style="color:#fbbf24;"></i>
+                <h3 style="color:#1e3c72;">لوحة الشرف للفصل الأول 2025/2026</h3>
+                <p>تفتخر الكلية بالإعلان عن أسماء الطلبة المتفوقين على لوحة الشرف لهذا الفصل الدراسي، تقديرًا لجهودهم وتفانيهم.</p>
+                <div style="margin:20px 0;"><i class="fas fa-quote-right fa-2x" style="color:#fbbf24;"></i><p class="fw-bold">🌟 التفوق ليس محطة وصول، بل أسلوب حياة يصنعه الإصرار ويقوده الطموح.</p></div>
+                <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid037Bbuhyau1QnmWgx9vfmEmwH31LgmbAdFo8JyQR64eA6pVVnNd3xU5K2B9mAMpELNl&id=61587498255871" target="_blank" class="btn-custom"><i class="fab fa-facebook-f me-2"></i> لمشاهدة الأسماء</a>
+            </div>
+        </div>
+
+        <!-- نفحات رمضانية -->
+        <div class="ramadan-vibes" data-aos="fade-up">
+            <h2 style="color:#fbbf24;"><i class="fas fa-moon"></i> رمضانيات العدد</h2>
+            <p>رمضان محطة لإعادة التوازن النفسي والروحي، وترسيخ قيم العطاء والتسامح، والانخراط في العمل المجتمعي بروح الفريق الواحد.</p>
+        </div>
+
+        <!-- الزاوية العلمية (بحث مستجد) -->
+        <div class="scientific-corner" data-aos="zoom-in">
+            <h2 style="color:#fbbf24;"><i class="fas fa-flask"></i> الزاوية العلمية - بحث مستجد</h2>
+            <h4 style="color:#fbbf24;">🤖 تطبيقات الذكاء الاصطناعي في التمريض: ثورة في الرعاية الصحية</h4>
+            <p>يشهد قطاع التمريض تحولاً نوعياً بفضل تقنيات الذكاء الاصطناعي، حيث أصبحت الأنظمة الذكية قادرة على تحليل بيانات المرضى، والتنبؤ بالمضاعفات، وتقديم توصيات دقيقة للعناية التمريضية. في هذا البحث، نستعرض أحدث التطبيقات:</p>
+            <ul>
+                <li><strong>الأنظمة الخبيرة لدعم القرار السريري:</strong> تقدم توصيات فورية للممرضين بناءً على تحليل شامل لحالة المريض.</li>
+                <li><strong>الروبوتات المساعدة:</strong> تستخدم في المهام الروتينية مثل قياس العلامات الحيوية وتوزيع الأدوية، مما يمنح الممرضين وقتاً أطول للرعاية المباشرة.</li>
+                <li><strong>التعلم الآلي للتنبؤ بمخاطر السقوط:</strong> نماذج تتعلم من بيانات المرضى لتحديد المعرضين لخطر السقوط، مما يسمح باتخاذ إجراءات وقائية.</li>
+                <li><strong>معالجة اللغة الطبيعية في التوثيق:</strong> أنظمة تحول الملاحظات الصوتية للممرضين إلى سجلات مكتوبة بشكل تلقائي، مما يوفر الوقت ويقلل الأخطاء.</li>
+                <li><strong>مراقبة المرضى عن بعد باستخدام الذكاء الاصطناعي:</strong> تحليل البيانات من الأجهزة القابلة للارتداء للكشف المبكر عن التدهور الصحي.</li>
+            </ul>
+            <p><strong>المراجع:</strong> دراسة حديثة من جامعة جونز هوبكنز (2025)، ومقال في مجلة التمريض السريري (2024).</p>
+        </div>
+
+        <!-- الزاوية الطبية -->
+        <div class="medical-corner" data-aos="zoom-in">
+            <h2 style="color:#fbbf24;"><i class="fas fa-heartbeat"></i> الزاوية الطبية</h2>
+            <h4 style="color:#fbbf24;">🩺 نصائح للوقاية من الأمراض الموسمية</h4>
+            <ul>
+                <li><strong>غسل اليدين بانتظام:</strong> بالماء والصابون لمدة 20 ثانية على الأقل.</li>
+                <li><strong>الحصول على التطعيمات:</strong> مثل لقاح الإنفلونزا.</li>
+                <li><strong>تناول الأطعمة الغنية بفيتامين C:</strong> البرتقال، الليمون، الكيوي.</li>
+                <li><strong>شرب كمية كافية من الماء:</strong> 8-10 أكواب يومياً.</li>
+                <li><strong>النوم الكافي:</strong> 7-8 ساعات يومياً.</li>
+            </ul>
+        </div>
+
+        <!-- معلومة الشهر -->
+        <div class="monthly-info" data-aos="fade-up">
+            <h2 style="color:#fbbf24;"><i class="fas fa-flask"></i> معلومة الشهر</h2>
+            <h4 style="color:#fbbf24;">تأثير الصيام المتوازن على الصحة:</h4>
+            <ul>
+                <li><strong>الصحة القلبية:</strong> يقلل الكوليسترول الضار ويخفض ضغط الدم.</li>
+                <li><strong>التمثيل الغذائي:</strong> يعزز عمليات التمثيل الغذائي وتنظيم السكر.</li>
+                <li><strong>الجهاز الهضمي:</strong> يمنح الجهاز الهضمي فرصة للراحة.</li>
+                <li><strong>الوظائف العصبية:</strong> يحفز إنتاج البروتينات العصبية ويعزز التركيز.</li>
+                <li><strong>التجديد الخلوي:</strong> يدعم عمليات الأوتوفاجي لتجديد الخلايا.</li>
+            </ul>
+            <p><strong>📌 نصيحة:</strong> الالتزام بوجبات متوازنة خلال الإفطار والسحور يضمن الاستفادة الصحية الأمثل.</p>
+        </div>
+
+        <!-- تغيير الصفحة الرسمية -->
+        <div class="card-custom" data-aos="flip-up">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h4 style="color:#1e3c72;"><i class="fas fa-exclamation-triangle" style="color:#fbbf24;"></i> تغيير الصفحة الرسمية للكلية</h4>
+                    <p>تُعلمكم الكلية بأنه قد تم تغيير الصفحة الرسمية. الصفحة الجديدة هي المعتمدة الوحيدة لنشر القرارات الرسمية والإعلانات والأخبار الأكاديمية.</p>
+                    <button class="btn-outline-custom btn-sm" onclick="toggleContent('pageChange', this)"><i class="fas fa-plus-circle"></i> اقرأ المزيد</button>
+                    <div id="pageChange" class="collapse-content">
+                        <p>الرابط الجديد: <a href="https://www.facebook.com/share/1EDkkDasAx/" target="_blank">https://www.facebook.com/share/1EDkkDasAx/</a></p>
+                        <p>شاكرين لكم حسن تعاونكم وحرصكم على متابعة القنوات الرسمية المعتمدة.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <a href="https://www.facebook.com/share/1EDkkDasAx/" target="_blank" class="btn-custom"><i class="fab fa-facebook-f me-2"></i> تابعونا</a>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- إغلاق container الرئيسي -->
+
+
+    <!-- تذييل -->
+    <footer class="footer">
+        <div class="container">
+            <h5><i class="fas fa-university me-2"></i> كلية نسيبة المازنية للتمريض والقبالة والمهن الطبية المساندة</h5>
+            <p>نحو التميز الأكاديمي والريادة في التعليم الصحي</p>
+            <hr class="border-light">
+            <p class="mb-0"> لجنة التواصل والاعلام جميع الحقوق محفوظة ©2026</p>
+        </div>
+
+
+
+    <!-- توقيع المصمم  -->
+    <div class="container text-center">
+        <div class="designer-credit" data-aos="fade-up">
+            <i class="fas fa-paint-brush"></i> تصميم وتطوير: <span class="name">م. تقاء أبو زيتون</span> <i class="fas fa-code"></i> 
+        </div>
+    </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 50 });
+        
+        // دالة محسنة لتبديل عرض المحتوى مع تغيير نص الزر
+        function toggleContent(id, btn) {
+            let el = document.getElementById(id);
+            if (el.style.display === 'block') {
+                el.style.display = 'none';
+                btn.innerHTML = '<i class="fas fa-plus-circle"></i> اقرأ المزيد';
+            } else {
+                el.style.display = 'block';
+                btn.innerHTML = '<i class="fas fa-minus-circle"></i> أخفِ التفاصيل';
+            }
+        }
+
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').style.display = 'block';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+        document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
+        
+    </script>
+</body>
+</html>
